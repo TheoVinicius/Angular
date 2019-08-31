@@ -1,3 +1,4 @@
+import { CadastroComponent } from './central-content/cadastro/cadastro.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NavbarComponent } from './central-content/navbar/navbar.component';
 import { ButtonModule } from 'primeng/button';
@@ -10,6 +11,11 @@ import { HttpComponent } from './http/http.component';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { LoginComponent } from './central-content/login/login.component';
+import { ToastModule } from 'primeng/toast';
+import { MessageService } from 'primeng/components/common/messageservice';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {DropdownModule} from 'primeng/dropdown';
+import { ScrollingModule } from '@angular/cdk/scrolling';
 
 export const firebaseConfig = {
   apiKey: 'AIzaSyCU162xBGghRaszmRllu4c9JdtzakJJyzM',
@@ -26,7 +32,8 @@ export const firebaseConfig = {
     AppComponent,
     HttpComponent,
     LoginComponent,
-    NavbarComponent
+    NavbarComponent,
+    CadastroComponent
   ],
   imports: [
     BrowserModule,
@@ -35,9 +42,15 @@ export const firebaseConfig = {
     ButtonModule,
     AngularFireModule.initializeApp(firebaseConfig),
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ToastModule,
+    BrowserAnimationsModule,
+    DropdownModule,
+    ScrollingModule
   ],
-  providers: [    AngularFireAuth
+  providers: [
+    AngularFireAuth,
+    MessageService
   ],
   bootstrap: [AppComponent]
 })
